@@ -30,7 +30,7 @@
             
             $query->execute();
             
-            if(!$query->rowCount() == 1) {
+            if($query->rowCount() == 1) {
                 return true;
             }
 
