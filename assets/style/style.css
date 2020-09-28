@@ -1,0 +1,83 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.signInContainer {
+    background-color: #efefee;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    background-color: #fff;
+    min-height: 300px;
+    max-height: 100%;
+    width: 450px;
+    box-shadow: rgba(0,0, 0, 0.1) 0 1px 2px;
+    padding: 20px 35px;
+    overflow-y: auto;
+    /* box-sizing: border-box; */
+}
+
+.column form {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0 ;
+}
+
+.column form input {
+    font-size: 14px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #dedede;
+}
+
+.column #submitButton {
+    background-color: #4285f4;
+    color: #fff;
+    height: 36px;
+    width: 88px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+    margin:  10px 0 20px 0;
+    font-size: 16px;
+}
+
+.column .header {
+    padding: 20px 0;  
+}
+
+.column h3 {
+    font-size: 24px;
+    font-weight: 400px;
+    font-height: 32px;
+    margin: 0;
+    padding: 16px 0 0 0;
+    color: #000;
+}
+
+.column .header span {
+    font-size: 14px;
+}
+
+.column .header img {
+    width: 100px;
+}
+
+.signInMessage {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
