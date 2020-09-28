@@ -1,8 +1,36 @@
 <!-- register page -->
 <?php
-    // if(isset($_POST["submitButton"])){
-    //     echo "Form was submitted";
-    // }
+    require_once("includes/config.php");
+    require_once("includes/classes/FormSanitizer.php");
+    require_once("includes/classes/Account.php");
+    require_once("includes/classes/Constants.php");
+    $account = new Account($con);
+
+    if(isset($_POST["submitButton"])){
+        // sanitization
+       $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
+       $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
+       $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+       $email = FormSanitizer::sanitizeFormEmail($_POST["email"]);
+       $email2 = FormSanitizer::sanitizeFormEmail($_POST["email2"]);
+       $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
+       $password2 = FormSanitizer::sanitizeFormPassword($_POST["password2"]);
+        
+        $success = $account->register($firstName, $lastName, $username, $email, $email2, $password, $password2);
+        
+        if($success) {
+            $_SESSION["userLoggedIn"] = $username;
+            header('Lcoation: index.php'); 
+            exit;
+        } 
+    }
+    function getInputValue($name) {
+        if(isset($_POST[$name])) {
+            echo $_POST[$name];
+        }
+    }
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,18 +50,25 @@
                 <span>to continue to Chilix</span>
             </div>
             <form method= "post" action="">
-                <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+                <?php echo $account->getError(Constants::$firstNameCharacters); ?>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" value="<?php getInputValue("firstName")?>"required>
                 
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+                <?php echo $account->getError(Constants::$lastNameCharacters); ?>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" value="<?php getInputValue("lastName")?>"required>
                 
-                <input type="text" name="username" id="username" placeholder="User Name" required>
+                <?php echo $account->getError(Constants::$usernameCharacters); ?>
+                <?php echo $account->getError(Constants::$usernameTaken); ?>
+                <input type="text" name="username" id="username" placeholder="User Name" value="<?php getInputValue("username")?>"required>
                 
-                <input type="email" name="email" id="email" placeholder="Email" required>
-                
+                <?php echo $account->getError(Constants::$emailsDontMatch); ?>
+                <?php echo $account->getError(Constants::$emailInvalid); ?>
+                <?php echo $account->getError(Constants::$emailTaken); ?>
+                <input type="email" name="email" id="email" placeholder="Email" value="<?php getInputValue("email")?>"required>
                 <input type="email" name="email2" id="email2" placeholder="Confirm Email" required>
                 
+                <?php echo $account->getError(Constants::$passwordsDontMatch); ?>
+                <?php echo $account->getError(Constants::$passwordLength); ?>
                 <input type="password" name="password" id="password" placeholder="Password" required>
-                
                 <input type="password" name="password2" id="password2" placeholder="Confirm Password" required>
                 
                 <input type="submit" name="submitButton" id="submitButton" value="SUBMIT">

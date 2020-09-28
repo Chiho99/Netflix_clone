@@ -62,7 +62,7 @@ body {
 .column h3 {
     font-size: 24px;
     font-weight: 400px;
-    font-height: 32px;
+    /* font-height: 32px; */
     margin: 0;
     padding: 16px 0 0 0;
     color: #000;
@@ -80,4 +80,11 @@ body {
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
+}
+
+.errorMessage {
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
 }
