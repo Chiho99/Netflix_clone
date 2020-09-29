@@ -6,7 +6,7 @@
      require_once("includes/classes/Constants.php");
      $account = new Account($con);
 
-    if(isset($_POST["submitButton"])){
+    if(isset($_POST["submitButton"])) {
         $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
         $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
          

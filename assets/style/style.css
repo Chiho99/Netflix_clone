@@ -11,6 +11,24 @@ body {
     box-sizing: border-box;
 }
 
+h3 {
+    color: #e5e5e5;
+}
+
+a h3:hover {
+    color: #fff;
+}
+
+a {
+    text-transform: none;
+}
+
+.wrapper {
+    min-width: 1050px;
+    min-height: 100%;
+    background-color: #141414;
+}
+
 .signInContainer {
     background-color: #efefee;
     height: 100vh;
@@ -56,15 +74,15 @@ body {
 }
 
 .column .header {
-    padding: 20px 0;  
+    padding: 20px 0;
 }
 
 .column h3 {
     font-size: 24px;
-    font-weight: 400px;
-    /* font-height: 32px; */
+    font-weight: 400;
+    line-height: 32px;
     margin: 0;
-    padding: 16px 0 0 0;
+    padding-top: 16px;
     color: #000;
 }
 
@@ -83,8 +101,88 @@ body {
 }
 
 .errorMessage {
-    color: #ff0000;
+    color: #f00;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
+}
+
+.previewImage,
+.previewVideo {
+    width: 100%;
+}
+
+.previewContainer {
+    position: relative;
+    display: flex;
+}
+
+.previewContainer.small {
+    width: 230px;
+    height: 129px;
+    margin-right: 4px;
+    display: inline-flex;
+}
+
+.previewContainer.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+}
+
+.previewOverlay .mainDetails h3 {
+    color: #fff;
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.previewOverlay .mainDetails {
+    position: relative;
+    top: 35%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDetails button {
+    background-color: rgba(51,51,51,0.4);
+    color: #fff;
+    border: none;
+    min-width: 150px;
+    padding: 0 38px;
+    height: 50px;
+    max-height: 50px;
+    font-size: 18px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+button i {
+    color: inherit;
+}
+
+.mainDetails button:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.entities {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
