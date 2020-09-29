@@ -181,8 +181,62 @@ button i {
     padding: 10px 0;
 }
 
-.entities {
+.entities,
+.videos {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+}
+
+.previewCategories {
+    padding: 0 50px;
+}
+
+.errorBanner {
+    color: #fff;
+    position: absolute;
+    top:25%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.season {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+}
+
+.episodeContainer {
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 4px;
+}
+
+.episodeContainer .contents {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+.episodeContainer img {
+    width: 230px;
+    height: 129px;
+    object-fit: cover;
+}
+
+.episodeContainer .videoInfo h4,
+.episodeContainer .videoInfo span {
+    color: #fff;
+    width: 100%;
+    white-space: normal;
+}
+
+.episodeContainer .videoInfo {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.previewCategories.noScroll .category .entities {
+    white-space: normal;
 }
