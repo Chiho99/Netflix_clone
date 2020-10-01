@@ -143,6 +143,13 @@ a {
     margin: 15px 0;
 }
 
+/* season episode number */
+.previewOverlay .mainDetails h4 {
+    color: #fff;
+    font-size: 20px;
+    margin: 15px 0;
+}
+
 .previewOverlay .mainDetails {
     position: relative;
     top: 35%;
@@ -217,6 +224,7 @@ button i {
     display: flex;
     flex-direction: column;
     width: 230px;
+    position: relative;
 }
 
 .episodeContainer img {
@@ -265,3 +273,31 @@ button i {
     background-color: transparent;
     border: none;
 }
+
+.upNext {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.upNextContainer button {
+    padding: 0;
+}
+
+.upNextContainer h2,
+.upNextContainer h3 {
+    color: #fff;
+}
+
+.watchNav {
+    z-index: 2;
+}
+
+.seen {
+    color: #2ecc71;
+    font-size: 26px;
+    top: 5px;
+    left: 5px;
+}
+
+.

@@ -43,7 +43,7 @@ function updateProgressTimer(videoId, username) {
     let timer;
     $("video").on("playing", function(event) {
         // console.log("hello");
-        window.clearInterval();
+        window.clearInterval(timer);
         timer = window.setInterval(function() {
             updateProgress(videoId, username, event.target.currentTime); //taget based on event
             // console.log("hi");
@@ -71,6 +71,7 @@ function updateProgress(videoId, username, progress) {
         } 
     })
 }
+
 function setFinieshed(videoId, username) {
     // console.log(progress);
     $.post("ajax/setFinished.php", { videoId: videoId, username: username }, function(data) {
@@ -79,6 +80,7 @@ function setFinieshed(videoId, username) {
         } 
     })
 }
+
 function setStartTime(videoId, username) {
     $.post("ajax/getProgress.php", { videoId: videoId, username: username }, function(data) {
       if(isNaN(data)) { //is Not a Number
@@ -90,4 +92,18 @@ function setStartTime(videoId, username) {
           $("video").off("canplay");
       })
     })
+}
+
+function restartVideo() {
+    $("video")[0].currentTime = 0;
+    $("video")[0].play();
+    $(".upNext").fadeOut();
+}
+
+function watchVideo(videoId) {
+    window.location.href = "watch.php?id=" + videoId;
+}
+
+function showUpNext() {
+    $(".upNext").fadeIn();
 }
