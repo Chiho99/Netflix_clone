@@ -8,6 +8,19 @@ class CategoryContainers {
         $this->username = $username;
     }
 
+    public function showAllCategories() {
+        $query = $this->con->prepare("SELECT * FROM categories");
+        $query->execute();
+
+        $html = "<div class='previewCategories'>";
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $html .= $this->getCategoryHtml($row, null, true, true);
+        }
+
+        return $html . "</div>";
+    }
+
     public function showTVShowCategories() {
         $query = $this->con->prepare("SELECT * FROM categories");
         $query->execute();
@@ -60,8 +73,8 @@ class CategoryContainers {
         else if($tvShows) {
             $entities = EntityProvider::getTVShowEntities($this->con, $categoryId, 30);
         }
-        elseif($movies) {
-            $$entities = EntityProvider::getMoviesEntities($this->con, $categoryId, 30);
+        else {
+            $entities = EntityProvider::getMoviesEntities($this->con, $categoryId, 30);
         }
 
         if(sizeof($entities) == 0) {
