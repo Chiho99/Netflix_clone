@@ -347,3 +347,22 @@ button i {
     font-size: 20px;
     margin-left: 10px;
 }
+
+.previewCategories h1 {
+    color: #e5e5e5;
+}
+
+.textboxContainer {
+    padding: 100px 50px;
+}
+
+.searchInput {
+    height: 50px;
+    width: 600px;
+    border: solid #dedede;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}

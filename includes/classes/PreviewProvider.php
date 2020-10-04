@@ -8,6 +8,37 @@
             $this->username = $username;
         }
 
+        public function createCategoryPreviewVideo($categoryId) {
+            $entitiesArray = EntityProvider::getTVShowEntities($this->con, $categoryId, 1);
+
+            if(sizeof($entitiesArray) == 0) {
+                ErrorMessage::show("No TV shows to display");
+            }
+
+            return $this->createPreviewVideo($entitiesArray[0]);
+        }
+
+        //function for category page
+        public function createTVShowPreviewVideo() {
+            $entitiesArray = EntityProvider::getTVShowEntities($this->con, null, 1);
+
+            if(sizeof($entitiesArray) == 0) {
+                ErrorMessage::show("No TV shows to display");
+            }
+
+            return $this->createPreviewVideo($entitiesArray[0]);
+        }
+
+        public function createMoviesPreviewVideo() {
+            $entitiesArray = EntityProvider::getMoviesEntities($this->con, null, 1);
+
+            if(sizeof($entitiesArray) == 0) {
+                ErrorMessage::show("No Movies to display");
+            }
+
+            return $this->createPreviewVideo($entitiesArray[0]);
+        }
+
         public function createPreviewVideo($entity) {
             if($entity == null) {
                 $entity = $this->getRandomEntity();
@@ -58,7 +89,7 @@
 
         private function getRandomEntity() {
            
-            $entity = EntityProvider::getEntities($this->con, null, 1);
+            $entity = EntityProvider::getTVShowEntities($this->con, null, 1);
             return $entity[0];
         }
     }
