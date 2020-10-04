@@ -21,6 +21,7 @@ a h3:hover {
 
 a {
     text-transform: none;
+   text-decoration: none;
 }
 
 .wrapper {
@@ -305,10 +306,13 @@ button i {
     width: 100%;
     z-index: 1;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     position: 0 60px;
     height: 70px;
     box-sizing: border-box;
     min-width: 1050px;
+    padding: 0 50px;
     transition: background-color 200ms linear;
 }
 
@@ -365,4 +369,58 @@ button i {
     font-size: 20px;
     padding: 5px 10px;
     border-radius: 3px;
+}
+
+.settingsContainer {
+    padding-top: 60px;
+    background-color: transparent;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.settingsContainer h2 {
+    color: #fff;
+    margin-top: 0;
+}
+
+.settingsContainer .formSection {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+}
+
+.settingsContainer form input[type="text"],
+.settingsContainer form input[type="email"],
+.settingsContainer form input[type="password"] {
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+
+.settingsContainer form input[type="submit"] {
+    background-color: #dc1928;
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+}
+
+.alertSuccess, 
+.alertError {
+    margin: 10px 0;
+}
+
+.alertError {
+    color: #dc1928;
+}
+
+.alertSuccess {
+    color: #2ecc71;
 }

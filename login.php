@@ -14,7 +14,7 @@
          
          if($success) {
              $_SESSION["userLoggedIn"] = $username;
-             header('Lcoation: index.php'); 
+             header("Location: index.php"); 
              exit;
          }
     }
