@@ -300,4 +300,50 @@ button i {
     left: 5px;
 }
 
-.
+.topBar {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    position: 0 60px;
+    height: 70px;
+    box-sizing: border-box;
+    min-width: 1050px;
+    transition: background-color 200ms linear;
+}
+
+.scrolled {
+    background-color: #141414;
+    transition: background-color 200ms linear;
+
+}
+
+.logoContainer {
+    height: 40px;
+}
+
+.logoContainer img {
+    height: 100%;
+}
+
+.navLinks {
+    display: flex;
+    list-style: none;
+}
+
+.navLinks a {
+    color: #fff;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.rightItems {
+    text-align: right;
+    flex: 1;
+} 
+
+.rightItems i {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}
